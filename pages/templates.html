@@ -4,16 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CVBuilder | შაბლონები</title>
-  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
 </head>
 <body>
-  <header>
-    <h1>შაბლონები</h1>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="../index.html">CV<span>Builder</span></a>
+      <nav class="site-nav" aria-label="მთავარი ნავიგაცია">
+        <ul>
+          <li><a class="nav-link" href="../index.html">მთავარი</a></li>
+          <li><a class="nav-link" href="editor.html">რედაქტორი</a></li>
+          <li><a class="nav-link" href="templates.html" aria-current="page">შაბლონები</a></li>
+          <li><a class="nav-link" href="my-cvs.html">ჩემი რეზიუმეები</a></li>
+          <li><a class="nav-link" href="help.html">დახმარება</a></li>
+          <li><a class="nav-link" href="contact.html">კონტაქტი</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <main></main>
-  <footer></footer>
+
+  <main>
+    <div class="page-header">
+      <h1>შაბლონები</h1>
+      <p>აირჩიე რეზიუმეს სტილი.</p>
+    </div>
+
+    <div class="card-grid">
+      <article class="card">
+        <span class="badge">კლასიკური</span>
+        <h3>კლასიკური</h3>
+        <p>მკაფიო, ტრადიციული განლაგება ფორმალური სფეროებისთვის.</p>
+        <a class="btn btn-outline" href="editor.html">გამოყენება</a>
+      </article>
+      <article class="card">
+        <span class="badge">თანამედროვე</span>
+        <h3>თანამედროვე</h3>
+        <p>ორსვეტიანი დიზაინი აქცენტის ფერით.</p>
+        <a class="btn btn-outline" href="editor.html">გამოყენება</a>
+      </article>
+      <article class="card">
+        <span class="badge">მინიმალისტური</span>
+        <h3>მინიმალისტური</h3>
+        <p>სუფთა და მარტივი, ბევრი თავისუფალი სივრცით.</p>
+        <a class="btn btn-outline" href="editor.html">გამოყენება</a>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 CVBuilder</p>
+      <p>ავტორი: ნინო შარაშიძე</p>
+    </div>
+  </footer>
+
   <script type="module" src="../js/main.js"></script>
 </body>
 </html>

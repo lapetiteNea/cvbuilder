@@ -4,16 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CVBuilder | რედაქტორი</title>
-  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
 </head>
 <body>
-  <header>
-    <h1>რედაქტორი</h1>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="../index.html">CV<span>Builder</span></a>
+      <nav class="site-nav" aria-label="მთავარი ნავიგაცია">
+        <ul>
+          <li><a class="nav-link" href="../index.html">მთავარი</a></li>
+          <li><a class="nav-link" href="editor.html" aria-current="page">რედაქტორი</a></li>
+          <li><a class="nav-link" href="templates.html">შაბლონები</a></li>
+          <li><a class="nav-link" href="my-cvs.html">ჩემი რეზიუმეები</a></li>
+          <li><a class="nav-link" href="help.html">დახმარება</a></li>
+          <li><a class="nav-link" href="contact.html">კონტაქტი</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <main></main>
-  <footer></footer>
+
+  <main>
+    <div class="page-header">
+      <h1>რედაქტორი</h1>
+      <p>შეავსე ველები და რეზიუმე გვერდით ავტომატურად გამოჩნდება.</p>
+    </div>
+
+    <div class="editor-layout">
+      <form id="cv-form" novalidate>
+        <fieldset>
+          <legend>პირადი ინფორმაცია</legend>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">სახელი</label>
+              <input type="text" id="first-name" name="firstName" placeholder="ნინო">
+            </div>
+            <div class="form-group">
+              <label for="last-name">გვარი</label>
+              <input type="text" id="last-name" name="lastName" placeholder="შარაშიძე">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">ელფოსტა</label>
+              <input type="email" id="email" name="email" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">ტელეფონი</label>
+              <input type="tel" id="phone" name="phone" placeholder="555 00 00 00">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>პროფესიული შეჯამება</legend>
+          <div class="form-group">
+            <label for="summary">მოკლე აღწერა</label>
+            <textarea id="summary" name="summary" placeholder="რამდენიმე წინადადება შენს შესახებ"></textarea>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary">შენახვა</button>
+      </form>
+
+      <aside class="preview-panel" aria-label="რეზიუმეს პრევიუ">
+        <h2>რეზიუმეს პრევიუ</h2>
+        <p class="text-muted">აქ გამოჩნდება შენი რეზიუმე.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 CVBuilder</p>
+      <p>ავტორი: ნინო შარაშიძე</p>
+    </div>
+  </footer>
+
   <script type="module" src="../js/main.js"></script>
 </body>
 </html>
