@@ -1,1 +1,227 @@
-/* ღილაკები, ფორმები, ბარათები */
+/* ==========================================================
+   CVBuilder | კომპონენტები
+   ლოგო, ნავიგაცია, ღილაკები, ბარათები, ფორმები, აკორდეონი
+   ========================================================== */
+
+/* ---------- ლოგო ---------- */
+.logo {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-surface);
+}
+
+.logo:hover {
+  color: var(--color-surface);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--color-accent);
+}
+
+/* ---------- ნავიგაცია ---------- */
+.nav-link {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-primary-light);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.nav-link:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-surface);
+  text-decoration: none;
+}
+
+.nav-link[aria-current="page"] {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+}
+
+/* ---------- ღილაკები ---------- */
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-base);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.btn:hover {
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-dark);
+  color: var(--color-surface);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: var(--color-surface);
+}
+
+/* ---------- ბარათები ---------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(calc(var(--space-xs) * -1));
+}
+
+.card h3 {
+  font-size: var(--fs-lg);
+}
+
+.card p {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+}
+
+.card .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.badge {
+  align-self: flex-start;
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+}
+
+/* ---------- ფორმის ველები ---------- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-primary);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.field-error {
+  font-size: var(--fs-xs);
+  color: var(--color-danger);
+}
+
+fieldset {
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+legend {
+  padding-inline: var(--space-sm);
+  font-weight: var(--fw-bold);
+  color: var(--color-primary);
+}
+
+/* ---------- რეზიუმეს პრევიუს პანელი ---------- */
+.preview-panel {
+  min-height: 24rem;
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- აკორდეონი (details) ---------- */
+details {
+  margin-bottom: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+summary {
+  padding: var(--space-md) var(--space-lg);
+  font-weight: var(--fw-medium);
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+details[open] summary {
+  border-bottom: 1px solid var(--color-border);
+}
+
+details p {
+  padding: var(--space-md) var(--space-lg);
+  margin: 0;
+}
