@@ -1,0 +1,165 @@
+/* ==========================================================
+   CVBuilder | გლობალური სტილები
+   CSS ცვლადები, reset და ტიპოგრაფია
+   ========================================================== */
+
+/* ---------- 1. CSS ცვლადები ---------- */
+:root {
+  /* ფერების პალიტრა */
+  --color-primary: #1f3864;
+  --color-primary-dark: #15274a;
+  --color-primary-light: #d9e2f3;
+  --color-accent: #2f8f83;
+  --color-accent-dark: #236e64;
+  --color-bg: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-text: #1f2937;
+  --color-text-muted: #5b6475;
+  --color-border: #d3d9e4;
+  --color-danger: #c0392b;
+  --color-success: #2e7d32;
+
+  /* შრიფტები */
+  --font-main: "Noto Sans Georgian", "Sylfaen", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: Consolas, "Courier New", monospace;
+
+  /* ტექსტის ზომები */
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.75rem;
+
+  /* წონა და line-height */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --lh-tight: 1.25;
+  --lh-base: 1.6;
+
+  /* დაშორებები */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+
+  /* ფორმები, ჩრდილები, ანიმაცია */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 3px rgba(31, 56, 100, 0.12);
+  --shadow-md: 0 6px 18px rgba(31, 56, 100, 0.14);
+  --transition: 0.2s ease;
+
+  /* განლაგების ზომები */
+  --container-width: 1100px;
+  --header-height: 4rem;
+}
+
+/* ---------- 2. Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+}
+
+/* ---------- 3. ტიპოგრაფია ---------- */
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  color: var(--color-primary);
+}
+
+h1 {
+  font-size: var(--fs-3xl);
+}
+
+h2 {
+  font-size: var(--fs-2xl);
+}
+
+h3 {
+  font-size: var(--fs-xl);
+}
+
+h4 {
+  font-size: var(--fs-lg);
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--color-accent-dark);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+small,
+.text-small {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  background-color: var(--color-primary-light);
+  padding: 0 var(--space-xs);
+  border-radius: var(--radius-sm);
+}
