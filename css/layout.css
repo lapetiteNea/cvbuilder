@@ -1,1 +1,146 @@
-/* Flexbox/Grid განლაგება, responsive */
+/* ==========================================================
+   CVBuilder | განლაგება (Flexbox და Grid)
+   ========================================================== */
+
+/* ---------- გვერდის ჩონჩხი: header, main, footer ---------- */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+/* ---------- Header და ნავიგაცია (Flexbox) ---------- */
+.site-header {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  min-height: var(--header-height);
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  list-style: none;
+  padding: 0;
+}
+
+/* ---------- Footer (Flexbox) ---------- */
+.site-footer {
+  background-color: var(--color-primary-dark);
+  color: var(--color-primary-light);
+  font-size: var(--fs-sm);
+}
+
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding-block: var(--space-lg);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* ---------- გვერდის სათაური ---------- */
+.page-header {
+  margin-bottom: var(--space-xl);
+}
+
+.page-header h1 {
+  margin-bottom: var(--space-sm);
+}
+
+.page-header p {
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+
+/* ---------- Hero (მთავარი გვერდი) ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding-block: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.hero p {
+  max-width: 40rem;
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* ---------- ბარათების ბადე (Grid) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-lg);
+}
+
+/* ---------- რედაქტორი: ფორმა + პრევიუ (Grid) ---------- */
+.editor-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .editor-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header .container,
+  .site-footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
