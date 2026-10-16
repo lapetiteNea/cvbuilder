@@ -58,9 +58,26 @@
   /* განლაგების ზომები */
   --container-width: 1100px;
   --header-height: 4rem;
+
+  /* მოდალური ფანჯარა */
+  --color-overlay: rgba(21, 39, 74, 0.6);
+  --z-modal: 100;
+}
+
+/* მცირე ეკრანებზე ზომების შემცირება */
+@media (max-width: 600px) {
+  :root {
+    --fs-3xl: 2rem;
+    --fs-2xl: 1.625rem;
+    --fs-xl: 1.25rem;
+  }
 }
 
 /* ---------- 2. Reset ---------- */
+[hidden] {
+  display: none !important;
+}
+
 *,
 *::before,
 *::after {

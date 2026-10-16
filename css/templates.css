@@ -1,1 +1,188 @@
-/* რეზიუმის შაბლონების სტილები */
+/* ==========================================================
+   CVBuilder | რეზიუმის შაბლონები
+   ========================================================== */
+
+.resume {
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-base);
+}
+
+.resume h2,
+.resume h3 {
+  color: inherit;
+}
+
+.resume__name {
+  font-size: var(--fs-2xl);
+  overflow-wrap: anywhere;
+}
+
+.resume__contact {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+}
+
+.is-placeholder {
+  opacity: 0.45;
+}
+
+.resume__header {
+  margin-bottom: var(--space-md);
+}
+
+.resume__section {
+  margin-bottom: var(--space-md);
+}
+
+.resume__section h3 {
+  margin-bottom: var(--space-sm);
+  font-size: var(--fs-base);
+}
+
+.resume__section p {
+  margin-bottom: 0;
+  overflow-wrap: anywhere;
+}
+
+.resume__item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-sm);
+}
+
+.resume__meta {
+  color: var(--color-text-muted);
+}
+
+.resume__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-sm);
+  list-style: none;
+  padding: 0;
+}
+
+/* ---------- კლასიკური ---------- */
+.resume--classic .resume__header {
+  padding-bottom: var(--space-md);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.resume--classic .resume__name {
+  color: var(--color-primary);
+}
+
+.resume--classic .resume__section h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+.resume--classic .resume__skills li::after {
+  content: ",";
+}
+
+.resume--classic .resume__skills li:last-child::after {
+  content: "";
+}
+
+/* ---------- მენეჯერული ---------- */
+.resume--executive .resume__header {
+  text-align: center;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resume--executive .resume__section h3 {
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-primary);
+}
+
+.resume--executive .resume__skills li {
+  padding-right: var(--space-sm);
+  border-right: 1px solid var(--color-border);
+}
+
+.resume--executive .resume__skills li:last-child {
+  border-right: none;
+}
+
+/* ---------- თანამედროვე ---------- */
+.resume--modern {
+  padding: 0;
+}
+
+.resume--modern .resume__header {
+  margin-bottom: 0;
+  padding: var(--space-lg);
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.resume--modern .resume__contact {
+  color: var(--color-primary-light);
+}
+
+.resume--modern .resume__section {
+  padding-inline: var(--space-lg);
+}
+
+.resume--modern .resume__section:first-of-type {
+  padding-top: var(--space-md);
+}
+
+.resume--modern .resume__section h3 {
+  color: var(--color-accent-dark);
+}
+
+.resume--modern .resume__skills li {
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+  border-radius: var(--radius-lg);
+}
+
+/* ---------- გამორჩეული ---------- */
+.resume--bold .resume__header {
+  padding-left: var(--space-md);
+  border-left: 8px solid var(--color-accent);
+}
+
+.resume--bold .resume__name {
+  font-size: var(--fs-3xl);
+  color: var(--color-primary);
+}
+
+.resume--bold .resume__section h3 {
+  color: var(--color-accent-dark);
+  font-size: var(--fs-lg);
+}
+
+.resume--bold .resume__skills li {
+  padding: var(--space-xs) var(--space-sm);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- მინიმალისტური ---------- */
+.resume--minimal .resume__name {
+  font-weight: var(--fw-regular);
+  color: var(--color-text);
+}
+
+.resume--minimal .resume__section h3 {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+.resume--minimal .resume__skills li {
+  color: var(--color-text-muted);
+}

@@ -151,6 +151,7 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="date"],
+input[type="search"],
 textarea,
 select {
   width: 100%;
@@ -177,6 +178,22 @@ select:focus {
 .field-error {
   font-size: var(--fs-xs);
   color: var(--color-danger);
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+input[aria-invalid="true"]:focus,
+textarea[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.required-mark {
+  color: var(--color-danger);
+  font-weight: var(--fw-bold);
 }
 
 fieldset {
@@ -224,4 +241,309 @@ details[open] summary {
 details p {
   padding: var(--space-md) var(--space-lg);
   margin: 0;
+}
+
+/* ---------- ნავიგაციის გადამრთველი ---------- */
+.nav-toggle {
+  padding: var(--space-sm) var(--space-md);
+  background-color: transparent;
+  border: 2px solid var(--color-primary-light);
+  border-radius: var(--radius-sm);
+  color: var(--color-surface);
+  font-size: var(--fs-lg);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* ---------- ვალიდაცია ---------- */
+input.is-invalid,
+textarea.is-invalid,
+select.is-invalid {
+  border-color: var(--color-danger);
+}
+
+input.is-invalid:focus,
+textarea.is-invalid:focus {
+  box-shadow: 0 0 0 3px var(--color-bg);
+}
+
+.field-error {
+  color: var(--color-danger);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+}
+
+/* ---------- პატარა ღილაკი და ფილტრის ღილაკები ---------- */
+.btn-small {
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--fs-sm);
+}
+
+.filter-btn {
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.filter-btn:hover {
+  background-color: var(--color-primary-light);
+}
+
+.filter-btn[aria-pressed="true"] {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+/* ---------- უნარების ჩიპები ---------- */
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-md);
+  background-color: var(--color-primary-light);
+  border-radius: var(--radius-lg);
+  font-size: var(--fs-sm);
+  color: var(--color-primary);
+}
+
+.chip button {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  background-color: var(--color-surface);
+  border: none;
+  border-radius: 50%;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.chip button:hover {
+  background-color: var(--color-danger);
+  color: var(--color-surface);
+}
+
+/* ---------- ცარიელი მდგომარეობა ---------- */
+.empty-state {
+  padding: var(--space-xl);
+  text-align: center;
+  background-color: var(--color-surface);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+/* ---------- მოდალური ფანჯარა ---------- */
+.modal {
+  width: 100%;
+  max-width: 28rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.modal h2 {
+  margin-bottom: var(--space-md);
+  font-size: var(--fs-xl);
+}
+
+.modal-body {
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-muted);
+}
+
+.modal-body p {
+  margin-bottom: var(--space-sm);
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+/* ---------- მენიუს ღილაკი (ჩანს მხოლოდ მობილურზე) ---------- */
+.nav-toggle {
+  display: none;
+  padding: var(--space-sm) var(--space-md);
+  background-color: transparent;
+  border: 1px solid var(--color-primary-light);
+  border-radius: var(--radius-sm);
+  color: var(--color-surface);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* ---------- ბარათის ღილაკების რიგი ---------- */
+.card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: auto;
+  padding-top: var(--space-sm);
+}
+
+.card .card__actions .btn {
+  margin-top: 0;
+}
+
+/* ---------- ფორმის დამატებითი ელემენტები ---------- */
+.input-with-button {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.exp-item {
+  display: grid;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.exp-item__remove {
+  justify-self: start;
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: var(--radius-lg);
+  font-size: var(--fs-sm);
+}
+
+.chip button {
+  padding: 0 var(--space-xs);
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: var(--fs-lg);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.chip button:hover {
+  color: var(--color-danger);
+}
+
+.preview-title {
+  margin-bottom: var(--space-md);
+  font-size: var(--fs-lg);
+}
+
+/* ---------- მოდალური ფანჯარა ---------- */
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  background-color: var(--color-overlay);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 36rem;
+  max-height: 90vh;
+  padding: var(--space-lg);
+  overflow-y: auto;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.modal__header h2 {
+  font-size: var(--fs-xl);
+}
+
+.modal__close {
+  padding: 0 var(--space-sm);
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-size: var(--fs-2xl);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal__close:hover {
+  color: var(--color-danger);
+}
+
+.modal__body p {
+  margin-bottom: 0;
+}
+
+.modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+.modal-preview {
+  padding: var(--space-md);
+  background-color: var(--color-bg);
+  border-radius: var(--radius-md);
 }

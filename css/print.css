@@ -1,3 +1,33 @@
-/* ბეჭდვის სტილები */
+/* ==========================================================
+   CVBuilder | ბეჭდვის სტილები (მხოლოდ რეზიუმე იბეჭდება)
+   ========================================================== */
 @media print {
+  .site-header,
+  .site-footer,
+  .page-header,
+  #cv-form,
+  .preview-title {
+    display: none !important;
+  }
+
+  body {
+    background-color: var(--color-surface);
+  }
+
+  main {
+    max-width: none;
+    padding: 0;
+  }
+
+  .editor-layout {
+    display: block;
+  }
+
+  .preview-panel {
+    position: static;
+    max-height: none;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
 }
