@@ -12,7 +12,8 @@
   <header class="site-header">
     <div class="container">
       <a class="logo" href="../index.html">CV<span>Builder</span></a>
-      <nav class="site-nav" aria-label="მთავარი ნავიგაცია">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">მენიუ</button>
+      <nav class="site-nav" id="site-nav" aria-label="მთავარი ნავიგაცია">
         <ul>
           <li><a class="nav-link" href="../index.html">მთავარი</a></li>
           <li><a class="nav-link" href="editor.html">რედაქტორი</a></li>
@@ -31,18 +32,24 @@
       <p>როგორ დავწეროთ კარგი რეზიუმე.</p>
     </div>
 
-    <details open>
-      <summary>რა ინფორმაცია უნდა მოიცავდეს რეზიუმე?</summary>
-      <p>საკონტაქტო მონაცემები, მოკლე შეჯამება, გამოცდილება, განათლება და უნარები.</p>
-    </details>
-    <details>
-      <summary>რამდენი გვერდი უნდა იყოს?</summary>
-      <p>დამწყებისთვის ერთი გვერდი საკმარისია, გამოცდილ სპეციალისტებს ორი გვერდიც შეიძლება დასჭირდეთ.</p>
-    </details>
-    <details>
-      <summary>როგორ ავარჩიო შაბლონი?</summary>
-      <p>აირჩიე სტილი, რომელიც შენს სფეროს შეესაბამება: ფორმალური სფეროსთვის კლასიკური, შემოქმედებითისთვის თანამედროვე.</p>
-    </details>
+    <div class="accordion">
+      <details open>
+        <summary>რა ინფორმაცია უნდა მოიცავდეს რეზიუმე?</summary>
+        <p>საკონტაქტო მონაცემები, მოკლე შეჯამება, გამოცდილება, განათლება და უნარები.</p>
+      </details>
+      <details>
+        <summary>რამდენი გვერდი უნდა იყოს?</summary>
+        <p>დამწყებისთვის ერთი გვერდი საკმარისია, გამოცდილ სპეციალისტებს ორი გვერდიც შეიძლება დასჭირდეთ.</p>
+      </details>
+      <details>
+        <summary>როგორ ავარჩიო შაბლონი?</summary>
+        <p>აირჩიე სტილი, რომელიც შენს სფეროს შეესაბამება: ფორმალური სფეროსთვის კლასიკური, შემოქმედებითისთვის თანამედროვე.</p>
+      </details>
+      <details>
+        <summary>სად ინახება ჩემი რეზიუმეები?</summary>
+        <p>რეზიუმეები ინახება მხოლოდ შენს ბრაუზერში (localStorage). ბრაუზერის მონაცემების გასუფთავებისას ისინი წაიშლება, ამიტომ მნიშვნელოვანი რეზიუმე PDF-ად შეინახე.</p>
+      </details>
+    </div>
   </main>
 
   <footer class="site-footer">

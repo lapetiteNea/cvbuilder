@@ -7,12 +7,15 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/templates.css">
+  <link rel="stylesheet" href="../css/print.css" media="print">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
       <a class="logo" href="../index.html">CV<span>Builder</span></a>
-      <nav class="site-nav" aria-label="მთავარი ნავიგაცია">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">მენიუ</button>
+      <nav class="site-nav" id="site-nav" aria-label="მთავარი ნავიგაცია">
         <ul>
           <li><a class="nav-link" href="../index.html">მთავარი</a></li>
           <li><a class="nav-link" href="editor.html" aria-current="page">რედაქტორი</a></li>
@@ -28,7 +31,7 @@
   <main>
     <div class="page-header">
       <h1>რედაქტორი</h1>
-      <p>შეავსე ველები და რეზიუმე გვერდით ავტომატურად გამოჩნდება.</p>
+      <p>შეავსე ველები და რეზიუმე გვერდით ავტომატურად გამოჩნდება. <span class="required-mark">*</span> სავალდებულო ველია.</p>
     </div>
 
     <div class="editor-layout">
@@ -37,22 +40,22 @@
           <legend>პირადი ინფორმაცია</legend>
           <div class="form-row">
             <div class="form-group">
-              <label for="first-name">სახელი</label>
-              <input type="text" id="first-name" name="firstName" placeholder="ნინო">
+              <label for="first-name">სახელი <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="text" id="first-name" name="firstName" placeholder="ნინო" required data-validate="name" autocomplete="given-name">
             </div>
             <div class="form-group">
-              <label for="last-name">გვარი</label>
-              <input type="text" id="last-name" name="lastName" placeholder="შარაშიძე">
+              <label for="last-name">გვარი <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="text" id="last-name" name="lastName" placeholder="შარაშიძე" required data-validate="name" autocomplete="family-name">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="email">ელფოსტა</label>
-              <input type="email" id="email" name="email" placeholder="name@example.com">
+              <label for="email">ელფოსტა <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="name@example.com" required data-validate="email" autocomplete="email">
             </div>
             <div class="form-group">
-              <label for="phone">ტელეფონი</label>
-              <input type="tel" id="phone" name="phone" placeholder="555 00 00 00">
+              <label for="phone">ტელეფონი <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="555 12 34 56" required data-validate="phone" autocomplete="tel">
             </div>
           </div>
         </fieldset>
@@ -61,16 +64,46 @@
           <legend>პროფესიული შეჯამება</legend>
           <div class="form-group">
             <label for="summary">მოკლე აღწერა</label>
-            <textarea id="summary" name="summary" placeholder="რამდენიმე წინადადება შენს შესახებ"></textarea>
+            <textarea id="summary" name="summary" maxlength="400" placeholder="რამდენიმე წინადადება შენს შესახებ"></textarea>
+            <small id="summary-counter" class="text-small">0/400</small>
           </div>
         </fieldset>
 
-        <button type="submit" class="btn btn-primary">შენახვა</button>
+        <fieldset>
+          <legend>სამუშაო გამოცდილება</legend>
+          <div id="experience-list"></div>
+          <button type="button" class="btn btn-outline" id="add-experience">+ გამოცდილების დამატება</button>
+        </fieldset>
+
+        <fieldset>
+          <legend>უნარები</legend>
+          <div class="form-group">
+            <label for="skill-input">უნარი</label>
+            <div class="input-with-button">
+              <input type="text" id="skill-input" placeholder="მაგ. JavaScript">
+              <button type="button" class="btn btn-outline" id="add-skill">დამატება</button>
+            </div>
+          </div>
+          <ul id="skills-list" class="chip-list" aria-label="დამატებული უნარები"></ul>
+        </fieldset>
+
+        <fieldset>
+          <legend>შაბლონი</legend>
+          <div class="form-group">
+            <label for="template">აირჩიე შაბლონი</label>
+            <select id="template" name="template"></select>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">შენახვა</button>
+          <button type="button" class="btn btn-outline" id="print-btn">ბეჭდვა / PDF</button>
+        </div>
       </form>
 
       <aside class="preview-panel" aria-label="რეზიუმეს პრევიუ">
-        <h2>რეზიუმეს პრევიუ</h2>
-        <p class="text-muted">აქ გამოჩნდება შენი რეზიუმე.</p>
+        <h2 class="preview-title">პრევიუ</h2>
+        <div id="resume-preview"></div>
       </aside>
     </div>
   </main>
@@ -83,5 +116,6 @@
   </footer>
 
   <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/editor.js"></script>
 </body>
 </html>

@@ -12,7 +12,8 @@
   <header class="site-header">
     <div class="container">
       <a class="logo" href="../index.html">CV<span>Builder</span></a>
-      <nav class="site-nav" aria-label="მთავარი ნავიგაცია">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">მენიუ</button>
+      <nav class="site-nav" id="site-nav" aria-label="მთავარი ნავიგაცია">
         <ul>
           <li><a class="nav-link" href="../index.html">მთავარი</a></li>
           <li><a class="nav-link" href="editor.html">რედაქტორი</a></li>
@@ -28,21 +29,10 @@
   <main>
     <div class="page-header">
       <h1>ჩემი რეზიუმეები</h1>
-      <p>აქ გამოჩნდება შენახული რეზიუმეები.</p>
+      <p>აქ ჩანს შენს ბრაუზერში შენახული რეზიუმეები.</p>
     </div>
 
-    <div class="card-grid">
-      <article class="card">
-        <h3>რეზიუმე №1</h3>
-        <p class="text-small">შეიცვალა: დღეს</p>
-        <a class="btn btn-outline" href="editor.html">რედაქტირება</a>
-      </article>
-      <article class="card">
-        <h3>ახალი რეზიუმე</h3>
-        <p>დაიწყე ახალი რეზიუმეს შექმნა.</p>
-        <a class="btn btn-primary" href="editor.html">შექმნა</a>
-      </article>
-    </div>
+    <div id="cv-list" class="card-grid"></div>
   </main>
 
   <footer class="site-footer">
@@ -53,5 +43,6 @@
   </footer>
 
   <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/my-cvs.js"></script>
 </body>
 </html>
