@@ -1,113 +1,84 @@
 <!doctype html>
 <html lang="ka">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CVBuilder | კონტაქტი</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="შექმენი პროფესიონალური რეზიუმე უფასოდ, რეგისტრაციის გარეშე."
+    />
+    <title>კონტაქტი · CVBuilder</title>
+    <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/layout.css" />
     <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/templates.css" />
+    <link rel="stylesheet" href="../css/print.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="container">
-        <a class="logo" href="../index.html">CV<span>Builder</span></a>
-        <button
-          type="button"
-          class="nav-toggle"
-          aria-expanded="false"
-          aria-controls="site-nav"
-        >
-          მენიუ
-        </button>
-        <nav class="site-nav" id="site-nav" aria-label="მთავარი ნავიგაცია">
-          <ul>
-            <li><a class="nav-link" href="../index.html">მთავარი</a></li>
-            <li><a class="nav-link" href="editor.html">რედაქტორი</a></li>
-            <li><a class="nav-link" href="templates.html">შაბლონები</a></li>
-            <li><a class="nav-link" href="my-cvs.html">ჩემი რეზიუმეები</a></li>
-            <li><a class="nav-link" href="help.html">დახმარება</a></li>
-            <li>
-              <a class="nav-link" href="contact.html" aria-current="page"
-                >კონტაქტი</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
+    <a class="skip" href="#main">შინაარსზე გადასვლა</a>
+    <header>
+      <a class="logo" href="../index.html"
+        ><span class="brand-icon">C</span> CV<span>Builder</span></a
+      ><button id="menu" aria-controls="navigation" aria-expanded="false">
+        მენიუ ☰
+      </button>
+      <nav id="navigation" aria-label="მთავარი">
+        <a href="../index.html">მთავარი</a
+        ><a href="../pages/editor.html">რედაქტორი</a
+        ><a href="../pages/templates.html">შაბლონები</a
+        ><a href="../pages/my-cvs.html">ჩემი რეზიუმეები</a
+        ><a href="../pages/help.html">რჩევები</a
+        ><a href="../pages/contact.html" aria-current="page">კონტაქტი</a>
+      </nav>
     </header>
-
-    <main>
-      <div class="page-header">
-        <h1>კონტაქტი</h1>
-        <p>
-          დაგვიტოვე შეტყობინება და უკუკავშირს მივიღებთ.
-          <span class="required-mark">*</span> სავალდებულო ველია.
-        </p>
+    <main id="main">
+      <div class="page-heading">
+        <p class="eyebrow">შენი აზრი მნიშვნელოვანია</p>
+        <h1>გაგვიზიარე შთაბეჭდილება.</h1>
+        <p>ეს სასწავლო პროექტის ფორმაა: შეტყობინება სერვერზე არ იგზავნება.</p>
       </div>
-
-      <form id="contact-form" class="card contact-form" novalidate>
-        <div class="form-group">
-          <label for="name"
-            >სახელი
-            <span class="required-mark" aria-hidden="true">*</span></label
-          >
-          <input
-            type="text"
+      <form id="contact-form" class="contact card">
+        <div class="field">
+          <label for="name">სახელი *</label
+          ><input
             id="name"
             name="name"
+            type="text"
             required
-            data-validate="name"
-            autocomplete="name"
-          />
+            maxlength="150"
+            aria-describedby="name-error"
+          /><small class="error" id="name-error"></small>
         </div>
-        <div class="form-group">
-          <label for="contact-email"
-            >ელფოსტა
-            <span class="required-mark" aria-hidden="true">*</span></label
-          >
-          <input
-            type="email"
-            id="contact-email"
+        <div class="field">
+          <label for="email">ელფოსტა *</label
+          ><input
+            id="email"
             name="email"
+            type="email"
             required
-            data-validate="email"
-            autocomplete="email"
-          />
+            maxlength="150"
+            aria-describedby="email-error"
+          /><small class="error" id="email-error"></small>
         </div>
-        <div class="form-group">
-          <label for="phone-contact">ტელეფონი (არასავალდებულო)</label>
-          <input
-            type="tel"
-            id="phone-contact"
-            name="phone"
-            data-validate="phone"
-            autocomplete="tel"
-          />
-        </div>
-        <div class="form-group">
-          <label for="message"
-            >შეტყობინება
-            <span class="required-mark" aria-hidden="true">*</span></label
-          >
-          <textarea
-            id="message"
-            name="message"
-            required
-            minlength="10"
-          ></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">გაგზავნა</button>
+        <label for="message">შეტყობინება *</label
+        ><textarea
+          id="message"
+          required
+          minlength="10"
+          maxlength="3000"
+          rows="6"
+        ></textarea
+        ><button>ფორმის შემოწმება</button>
+        <p id="contact-status" role="status"></p>
       </form>
     </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>&copy; 2026 CVBuilder</p>
-        <p>ავტორი: ნინო შარაშიძე</p>
-      </div>
+    <footer>
+      <a class="logo" href="../index.html"
+        >CVBuilder<span> / შენი შემდეგი ნაბიჯი.</span></a
+      >
+      <p>ნინო შარაშიძე · 2026 · მონაცემები ინახება მხოლოდ შენს ბრაუზერში.</p>
     </footer>
-
     <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages.js"></script>
   </body>
 </html>
