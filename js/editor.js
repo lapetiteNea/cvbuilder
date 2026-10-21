@@ -36,3 +36,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// გამოცდილების დინამიურად დამატების ფუნქციონალი
+const addExperienceBtn = document.getElementById("addExperienceBtn");
+const experienceContainer = document.getElementById("experienceContainer");
+
+if (addExperienceBtn && experienceContainer) {
+  addExperienceBtn.addEventListener("click", () => {
+    const experienceItem = document.createElement("div");
+    experienceItem.classList.add("experience-item");
+    experienceItem.innerHTML = `
+            <div class="form-group">
+                <label>კომპანია / თანამდებობა</label>
+                <input type="text" class="exp-input" placeholder="მაგ: Frontend Developer - Tech Corp">
+            </div>
+            <button type="button" class="remove-btn">წაშლა</button>
+        `;
+
+    // წაშლის ღილაკის ლოგიკა
+    experienceItem
+      .querySelector(".remove-btn")
+      .addEventListener("click", () => {
+        experienceItem.remove();
+      });
+
+    experienceContainer.appendChild(experienceItem);
+  });
+}
