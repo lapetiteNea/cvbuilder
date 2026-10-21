@@ -1,560 +1,184 @@
-/* ==========================================================
-   CVBuilder | კომპონენტები
-   ლოგო, ნავიგაცია, ღილაკები, ბარათები, ფორმები, აკორდეონი
-   ========================================================== */
-
-/* ---------- ლოგო ---------- */
 .logo {
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-bold);
-  color: var(--color-surface);
+  font-weight: 800;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  letter-spacing: -0.04em;
 }
-
-.logo:hover {
-  color: var(--color-surface);
-  text-decoration: none;
+.logo > span:not(.brand-icon) {
+  font-weight: 400;
 }
-
-.logo span {
-  color: var(--color-accent);
+.brand-icon {
+  display: inline-grid;
+  place-items: center;
+  background: var(--accent);
+  color: white;
+  width: 33px;
+  height: 36px;
+  border-radius: 8px;
+  margin-right: 6px;
 }
-
-/* ---------- ნავიგაცია ---------- */
-.nav-link {
-  display: block;
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--radius-sm);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  color: var(--color-primary-light);
-  transition:
-    background-color var(--transition),
-    color var(--transition);
+.actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 25px 0;
 }
-
-.nav-link:hover {
-  background-color: var(--color-primary-dark);
-  color: var(--color-surface);
-  text-decoration: none;
-}
-
-.nav-link[aria-current="page"] {
-  background-color: var(--color-accent);
-  color: var(--color-surface);
-}
-
-/* ---------- ღილაკები ---------- */
-.btn {
+button,
+.button {
   display: inline-block;
-  padding: var(--space-sm) var(--space-lg);
-  border: 2px solid transparent;
-  border-radius: var(--radius-sm);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-base);
-  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: white;
   cursor: pointer;
-  transition:
-    background-color var(--transition),
-    color var(--transition),
-    box-shadow var(--transition);
+  font-weight: 650;
+  font-size: 0.85rem;
 }
-
-.btn:hover {
-  text-decoration: none;
-  box-shadow: var(--shadow-md);
+button:hover,
+.button:hover {
+  filter: brightness(0.92);
 }
-
-.btn:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 2px;
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
-
-.btn-primary {
-  background-color: var(--color-accent);
-  color: var(--color-surface);
+.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 12px 18px;
+  border-radius: 9px;
+  font-size: 0.85rem;
 }
-
-.btn-primary:hover {
-  background-color: var(--color-accent-dark);
-  color: var(--color-surface);
-}
-
-.btn-outline {
-  background-color: transparent;
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-}
-
-.btn-outline:hover {
-  background-color: var(--color-primary);
-  color: var(--color-surface);
-}
-
-.btn-danger {
-  background-color: var(--color-danger);
-  color: var(--color-surface);
-}
-
-/* ---------- ბარათები ---------- */
 .card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  padding: var(--space-lg);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition:
-    box-shadow var(--transition),
-    transform var(--transition);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px;
 }
-
-.card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(calc(var(--space-xs) * -1));
-}
-
 .card h3 {
-  font-size: var(--fs-lg);
+  font-size: 1.05rem;
 }
-
 .card p {
-  margin-bottom: 0;
-  color: var(--color-text-muted);
+  font-size: 0.85rem;
 }
-
-.card .btn {
-  align-self: flex-start;
-  margin-top: auto;
+.number {
+  display: block;
+  color: #809775;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
 }
-
-.badge {
-  align-self: flex-start;
-  padding: var(--space-xs) var(--space-sm);
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
-  border-radius: var(--radius-sm);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin: 0 0 25px;
+  background: var(--paper);
+  min-width: 0;
 }
-
-/* ---------- ფორმის ველები ---------- */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-md);
+legend {
+  font-weight: 750;
+  padding: 0 8px;
+  font-size: 0.9rem;
 }
-
-.form-group label {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  color: var(--color-primary);
+label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 650;
+  margin: 12px 0 7px;
 }
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"],
-input[type="search"],
+input,
 textarea,
 select {
   width: 100%;
-  padding: var(--space-sm) var(--space-md);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  transition:
-    border-color var(--transition),
-    box-shadow var(--transition);
+  border: 1px solid #cbd5ca;
+  border-radius: 8px;
+  padding: 11px 12px;
+  background: #fcfdfb;
+  color: var(--ink);
+  min-width: 0;
 }
-
 textarea {
-  min-height: 7rem;
   resize: vertical;
 }
-
 input:focus,
 textarea:focus,
 select:focus {
-  outline: none;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px var(--color-primary-light);
+  outline: 2px solid #77976c;
+  outline-offset: 2px;
 }
-
-.field-error {
-  font-size: var(--fs-xs);
-  color: var(--color-danger);
+input[type="color"] {
+  height: 48px;
+  padding: 5px;
 }
-
-input[aria-invalid="true"],
-textarea[aria-invalid="true"],
-select[aria-invalid="true"] {
-  border-color: var(--color-danger);
+.error {
+  display: block;
+  color: #a1392d;
 }
-
-input[aria-invalid="true"]:focus,
-textarea[aria-invalid="true"]:focus {
-  box-shadow: 0 0 0 3px var(--color-primary-light);
-}
-
-.required-mark {
-  color: var(--color-danger);
-  font-weight: var(--fw-bold);
-}
-
-fieldset {
-  padding: var(--space-md);
-  margin-bottom: var(--space-md);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-}
-
-legend {
-  padding-inline: var(--space-sm);
-  font-weight: var(--fw-bold);
-  color: var(--color-primary);
-}
-
-/* ---------- რეზიუმეს პრევიუს პანელი ---------- */
-.preview-panel {
-  min-height: 24rem;
-  padding: var(--space-lg);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-}
-
-/* ---------- აკორდეონი (details) ---------- */
-details {
-  margin-bottom: var(--space-md);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-}
-
-summary {
-  padding: var(--space-md) var(--space-lg);
-  font-weight: var(--fw-medium);
-  color: var(--color-primary);
-  cursor: pointer;
-}
-
-details[open] summary {
-  border-bottom: 1px solid var(--color-border);
-}
-
-details p {
-  padding: var(--space-md) var(--space-lg);
-  margin: 0;
-}
-
-/* ---------- ნავიგაციის გადამრთველი ---------- */
-.nav-toggle {
-  padding: var(--space-sm) var(--space-md);
-  background-color: transparent;
-  border: 2px solid var(--color-primary-light);
-  border-radius: var(--radius-sm);
-  color: var(--color-surface);
-  font-size: var(--fs-lg);
-  line-height: 1;
-  cursor: pointer;
-}
-
-.nav-toggle:hover {
-  background-color: var(--color-primary-dark);
-}
-
-/* ---------- ვალიდაცია ---------- */
-input.is-invalid,
-textarea.is-invalid,
-select.is-invalid {
-  border-color: var(--color-danger);
-}
-
-input.is-invalid:focus,
-textarea.is-invalid:focus {
-  box-shadow: 0 0 0 3px var(--color-bg);
-}
-
-.field-error {
-  color: var(--color-danger);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-medium);
-}
-
-/* ---------- პატარა ღილაკი და ფილტრის ღილაკები ---------- */
-.btn-small {
-  padding: var(--space-xs) var(--space-md);
-  font-size: var(--fs-sm);
-}
-
-.filter-btn {
-  padding: var(--space-xs) var(--space-md);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  font-size: var(--fs-sm);
-  cursor: pointer;
-  transition:
-    background-color var(--transition),
-    color var(--transition);
-}
-
-.filter-btn:hover {
-  background-color: var(--color-primary-light);
-}
-
-.filter-btn[aria-pressed="true"] {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-surface);
-}
-
-/* ---------- უნარების ჩიპები ---------- */
-.chip-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-top: var(--space-md);
-  padding: 0;
-  list-style: none;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-md);
-  background-color: var(--color-primary-light);
-  border-radius: var(--radius-lg);
-  font-size: var(--fs-sm);
-  color: var(--color-primary);
-}
-
-.chip button {
-  width: 1.5rem;
-  height: 1.5rem;
-  padding: 0;
-  background-color: var(--color-surface);
-  border: none;
-  border-radius: 50%;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.chip button:hover {
-  background-color: var(--color-danger);
-  color: var(--color-surface);
-}
-
-/* ---------- ცარიელი მდგომარეობა ---------- */
-.empty-state {
-  padding: var(--space-xl);
-  text-align: center;
-  background-color: var(--color-surface);
-  border: 2px dashed var(--color-border);
-  border-radius: var(--radius-md);
-}
-
-/* ---------- მოდალური ფანჯარა ---------- */
-.modal {
-  width: 100%;
-  max-width: 28rem;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: var(--space-lg);
-  background-color: var(--color-surface);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-}
-
-.modal h2 {
-  margin-bottom: var(--space-md);
-  font-size: var(--fs-xl);
-}
-
-.modal-body {
-  margin-bottom: var(--space-lg);
-  color: var(--color-text-muted);
-}
-
-.modal-body p {
-  margin-bottom: var(--space-sm);
-}
-
-.modal-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: var(--space-sm);
-}
-
-/* ---------- მენიუს ღილაკი (ჩანს მხოლოდ მობილურზე) ---------- */
-.nav-toggle {
+.error:empty {
   display: none;
-  padding: var(--space-sm) var(--space-md);
-  background-color: transparent;
-  border: 1px solid var(--color-primary-light);
-  border-radius: var(--radius-sm);
-  color: var(--color-surface);
-  font-weight: var(--fw-medium);
+}
+[aria-invalid="true"] {
+  border-color: #a1392d;
+}
+.entry {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+.section-controls {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+}
+.section-controls button,
+.remove {
+  font-size: 0.75rem;
+  padding: 6px 12px;
+}
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.chips span {
+  background: var(--soft);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+details {
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+}
+summary {
+  font-weight: 700;
   cursor: pointer;
 }
-
-.nav-toggle:hover {
-  background-color: var(--color-primary-dark);
+details p {
+  margin-top: 18px;
 }
-
-/* ---------- ბარათის ღილაკების რიგი ---------- */
-.card__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-top: auto;
-  padding-top: var(--space-sm);
+dialog {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px;
+  max-width: 90vw;
 }
-
-.card .card__actions .btn {
-  margin-top: 0;
+dialog::backdrop {
+  background: #13251c80;
 }
-
-/* ---------- ფორმის დამატებითი ელემენტები ---------- */
-.input-with-button {
-  display: flex;
-  gap: var(--space-sm);
+#status {
+  white-space: pre-line;
 }
-
-.form-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
+#search {
+  max-width: 550px;
 }
-
-.exp-item {
-  display: grid;
-  gap: var(--space-xs);
-  padding: var(--space-md);
-  margin-bottom: var(--space-md);
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-}
-
-.exp-item__remove {
-  justify-self: start;
-}
-
-.chip-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  list-style: none;
-  padding: 0;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-xs) var(--space-sm);
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
-  border-radius: var(--radius-lg);
-  font-size: var(--fs-sm);
-}
-
-.chip button {
-  padding: 0 var(--space-xs);
-  background: none;
-  border: none;
-  color: var(--color-primary);
-  font-size: var(--fs-lg);
-  line-height: 1;
-  cursor: pointer;
-}
-
-.chip button:hover {
-  color: var(--color-danger);
-}
-
-.preview-title {
-  margin-bottom: var(--space-md);
-  font-size: var(--fs-lg);
-}
-
-/* ---------- მოდალური ფანჯარა ---------- */
-body.modal-open {
-  overflow: hidden;
-}
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: var(--z-modal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-md);
-  background-color: var(--color-overlay);
-}
-
-.modal {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  width: 100%;
-  max-width: 36rem;
-  max-height: 90vh;
-  padding: var(--space-lg);
-  overflow-y: auto;
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-}
-
-.modal__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-}
-
-.modal__header h2 {
-  font-size: var(--fs-xl);
-}
-
-.modal__close {
-  padding: 0 var(--space-sm);
-  background: none;
-  border: none;
-  border-radius: var(--radius-sm);
-  color: var(--color-text-muted);
-  font-size: var(--fs-2xl);
-  line-height: 1;
-  cursor: pointer;
-}
-
-.modal__close:hover {
-  color: var(--color-danger);
-}
-
-.modal__body p {
-  margin-bottom: 0;
-}
-
-.modal__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: var(--space-sm);
-}
-
-.modal-preview {
-  padding: var(--space-md);
-  background-color: var(--color-bg);
-  border-radius: var(--radius-md);
+.empty {
+  grid-column: 1/-1;
+  padding: 45px;
+  text-align: center;
+  background: var(--soft);
+  border-radius: var(--radius);
 }

@@ -1,33 +1,56 @@
-/* ==========================================================
-   CVBuilder | ბეჭდვის სტილები (მხოლოდ რეზიუმე იბეჭდება)
-   ========================================================== */
 @media print {
-  .site-header,
-  .site-footer,
-  .page-header,
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+  body {
+    background: white;
+  }
+  header,
+  footer,
+  .skip,
+  .page-heading,
   #cv-form,
-  .preview-title {
+  .preview-label {
     display: none !important;
   }
-
-  body {
-    background-color: var(--color-surface);
-  }
-
   main {
-    max-width: none;
     padding: 0;
+    max-width: none;
   }
-
   .editor-layout {
     display: block;
   }
-
   .preview-panel {
     position: static;
-    max-height: none;
     padding: 0;
-    border: none;
+    background: none;
+    border-radius: 0;
+  }
+  .resume {
     box-shadow: none;
+    min-height: 0;
+    padding: 0 !important;
+    font-size: 10pt;
+    color: #111;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .resume h2 {
+    font-size: 23pt;
+  }
+  .resume h3 {
+    break-after: avoid;
+  }
+  .resume p {
+    orphans: 3;
+    widows: 3;
+  }
+  .resume section {
+    margin-top: 20px;
+  }
+  .resume.classic,
+  .resume.minimal {
+    border: 0;
   }
 }
