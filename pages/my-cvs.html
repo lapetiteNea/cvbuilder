@@ -1,48 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ka">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CVBuilder | ჩემი რეზიუმეები</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/components.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <a class="logo" href="../index.html">CV<span>Builder</span></a>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">მენიუ</button>
-      <nav class="site-nav" id="site-nav" aria-label="მთავარი ნავიგაცია">
-        <ul>
-          <li><a class="nav-link" href="../index.html">მთავარი</a></li>
-          <li><a class="nav-link" href="editor.html">რედაქტორი</a></li>
-          <li><a class="nav-link" href="templates.html">შაბლონები</a></li>
-          <li><a class="nav-link" href="my-cvs.html" aria-current="page">ჩემი რეზიუმეები</a></li>
-          <li><a class="nav-link" href="help.html">დახმარება</a></li>
-          <li><a class="nav-link" href="contact.html">კონტაქტი</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CVBuilder | ჩემი რეზიუმეები</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="logo" href="../index.html">CV<span>Builder</span></a>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          მენიუ
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="მთავარი ნავიგაცია">
+          <ul>
+            <li><a class="nav-link" href="../index.html">მთავარი</a></li>
+            <li><a class="nav-link" href="editor.html">რედაქტორი</a></li>
+            <li><a class="nav-link" href="templates.html">შაბლონები</a></li>
+            <li>
+              <a class="nav-link" href="my-cvs.html" aria-current="page"
+                >ჩემი რეზიუმეები</a
+              >
+            </li>
+            <li><a class="nav-link" href="help.html">დახმარება</a></li>
+            <li><a class="nav-link" href="contact.html">კონტაქტი</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  <main>
-    <div class="page-header">
-      <h1>ჩემი რეზიუმეები</h1>
-      <p>აქ ჩანს შენს ბრაუზერში შენახული რეზიუმეები.</p>
-    </div>
+    <main>
+      <div class="page-header">
+        <h1>ჩემი რეზიუმეები</h1>
+        <p>აქ ჩანს შენს ბრაუზერში შენახული რეზიუმეები.</p>
+      </div>
 
-    <div id="cv-list" class="card-grid"></div>
-  </main>
+      <div id="cv-list" class="card-grid"></div>
+    </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2026 CVBuilder</p>
-      <p>ავტორი: ნინო შარაშიძე</p>
-    </div>
-  </footer>
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 CVBuilder</p>
+        <p>ავტორი: ნინო შარაშიძე</p>
+      </div>
+    </footer>
 
-  <script type="module" src="../js/main.js"></script>
-  <script type="module" src="../js/my-cvs.js"></script>
-</body>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/my-cvs.js"></script>
+  </body>
 </html>

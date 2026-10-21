@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
     <title>CV Builder - Templates</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/templates.css" />
@@ -15,10 +16,44 @@
           <a href="../index.html">მთავარი</a>
           <a href="templates.html" class="active">თემები</a>
           <a href="my-cvs.html">ჩემი CV-ები</a>
+=======
+    <title>CVBuilder | შაბლონები</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/templates.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="logo" href="../index.html">CV<span>Builder</span></a>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          მენიუ
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="მთავარი ნავიგაცია">
+          <ul>
+            <li><a class="nav-link" href="../index.html">მთავარი</a></li>
+            <li><a class="nav-link" href="editor.html">რედაქტორი</a></li>
+            <li>
+              <a class="nav-link" href="templates.html" aria-current="page"
+                >შაბლონები</a
+              >
+            </li>
+            <li><a class="nav-link" href="my-cvs.html">ჩემი რეზიუმეები</a></li>
+            <li><a class="nav-link" href="help.html">დახმარება</a></li>
+            <li><a class="nav-link" href="contact.html">კონტაქტი</a></li>
+          </ul>
+>>>>>>> feature/global-styles
         </nav>
       </div>
     </header>
 
+<<<<<<< HEAD
     <main class="container templates-container">
       <h2>აირჩიეთ რეზიუმეს დიზაინი</h2>
       <p class="subtitle">
@@ -78,5 +113,48 @@
         window.location.href = "editor.html";
       }
     </script>
+=======
+    <main>
+      <div class="page-header">
+        <h1>შაბლონები</h1>
+        <p>მოძებნე და აირჩიე რეზიუმეს სტილი.</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="form-group">
+          <label for="template-search">ძებნა</label>
+          <input
+            type="search"
+            id="template-search"
+            placeholder="მაგ. კლასიკური"
+          />
+        </div>
+        <div class="form-group">
+          <label for="template-category">კატეგორია</label>
+          <select id="template-category">
+            <option value="all">ყველა</option>
+            <option value="formal">ფორმალური</option>
+            <option value="creative">შემოქმედებითი</option>
+            <option value="simple">მარტივი</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="template-grid" class="card-grid"></div>
+      <p id="template-empty" class="text-muted" hidden>
+        ამ პირობებით შაბლონი ვერ მოიძებნა.
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 CVBuilder</p>
+        <p>ავტორი: ნინო შარაშიძე</p>
+      </div>
+    </footer>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/templates.js"></script>
+>>>>>>> feature/global-styles
   </body>
 </html>
