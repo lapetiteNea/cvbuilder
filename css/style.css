@@ -3,7 +3,6 @@
    ========================================== */
 
 :root {
-<<<<<<< HEAD
   --primary-color: #4f46e5;
   --primary-hover: #4338ca;
   --bg-color: #f8fafc;
@@ -12,7 +11,6 @@
   --text-muted: #64748b;
   --border-color: #e2e8f0;
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-=======
   /* ფერების პალიტრა */
   --color-primary: #1f3864;
   --color-primary-dark: #15274a;
@@ -92,7 +90,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
->>>>>>> feature/global-styles
 }
 
 * {
