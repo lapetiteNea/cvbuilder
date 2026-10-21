@@ -151,7 +151,6 @@ form.addEventListener("submit", (event) => {
     dirty = false;
     history.replaceState(null, "", `?id=${encodeURIComponent(data.id)}`);
     status.textContent = "✓ რეზიუმე შენახულია. იხილე „ჩემი რეზიუმეები“.";
-    // Rebind dynamic controls to the normalized record returned by storage.
     drawSections();
   } catch {
     status.textContent =
