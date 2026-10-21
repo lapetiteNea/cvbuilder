@@ -1,25 +1,8 @@
-/* ==========================================
-   Templates Gallery Styles
-   ========================================== */
-.templates-container {
-  padding: 1rem 0;
-}
-
-.templates-container h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: var(--text-main);
-}
-
-.templates-container > p {
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-}
-
 .templates-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  margin-top: 1.5rem;
 }
 
 .template-card {
@@ -27,9 +10,10 @@
   border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
-  transition: var(--transition-smooth);
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .template-card:hover {
@@ -38,8 +22,7 @@
 }
 
 .template-preview-img {
-  width: 100%;
-  height: 200px;
+  height: 180px;
   background: #f1f5f9;
   display: flex;
   align-items: center;
@@ -51,37 +34,15 @@
 
 .template-info {
   padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: space-between;
 }
 
 .template-info h3 {
-  font-size: 1.25rem;
   margin-bottom: 0.5rem;
   color: var(--text-main);
 }
 
 .template-info p {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-}
-
-.btn {
-  display: inline-block;
-  background-color: var(--primary-color);
-  color: #ffffff;
-  padding: 0.65rem 1.25rem;
-  border-radius: 6px;
-  font-weight: 600;
-  text-align: center;
-  transition: var(--transition-smooth);
-  border: none;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: var(--primary-hover);
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
 }
