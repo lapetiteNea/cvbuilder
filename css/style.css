@@ -20,7 +20,9 @@
   --color-success: #2e7d32;
 
   /* შრიფტები */
-  --font-main: "Noto Sans Georgian", "Sylfaen", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-main:
+    "Noto Sans Georgian", "Sylfaen", system-ui, -apple-system, "Segoe UI",
+    sans-serif;
   --font-mono: Consolas, "Courier New", monospace;
 
   /* ტექსტის ზომები */

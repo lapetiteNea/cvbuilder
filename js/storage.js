@@ -1,6 +1,6 @@
 // რეზიუმეების შენახვა localStorage-ში
 
-const KEY = 'cvbuilder.cvs';
+const KEY = "cvbuilder.cvs";
 
 function readAll() {
   try {
@@ -36,7 +36,11 @@ export function getById(id) {
 // ინახავს ახალს ან განაახლებს არსებულს; წარუმატებლობისას აბრუნებს null-ს
 export function saveCv(cv) {
   const list = readAll();
-  const saved = { ...cv, id: cv.id || generateId(), updatedAt: new Date().toISOString() };
+  const saved = {
+    ...cv,
+    id: cv.id || generateId(),
+    updatedAt: new Date().toISOString(),
+  };
   const index = list.findIndex((item) => item.id === saved.id);
   if (index >= 0) list[index] = saved;
   else list.push(saved);
