@@ -1,176 +1,40 @@
-/* ==========================================================
-   CVBuilder | განლაგება (Flexbox და Grid)
-   ========================================================== */
-
-/* ---------- გვერდის ჩონჩხი: header, main, footer ---------- */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* ==========================================
+   Responsive & Mobile Navigation
+   ========================================== */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 2px solid var(--primary-color, #4f46e5);
+  color: var(--primary-color, #4f46e5);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-main {
-  flex: 1;
-  width: 100%;
-  max-width: var(--container-width);
-  margin-inline: auto;
-  padding: var(--space-xl) var(--space-md);
-}
-
-.container {
-  width: 100%;
-  max-width: var(--container-width);
-  margin-inline: auto;
-  padding-inline: var(--space-md);
-}
-
-/* ---------- Header და ნავიგაცია (Flexbox) ---------- */
-.site-header {
-  background-color: var(--color-primary);
-  color: var(--color-surface);
-  box-shadow: var(--shadow-sm);
-}
-
-.site-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-  min-height: var(--header-height);
-}
-
-.site-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-  list-style: none;
-  padding: 0;
-}
-
-/* ---------- Footer (Flexbox) ---------- */
-.site-footer {
-  background-color: var(--color-primary-dark);
-  color: var(--color-primary-light);
-  font-size: var(--fs-sm);
-}
-
-.site-footer .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  padding-block: var(--space-lg);
-}
-
-.site-footer p {
-  margin: 0;
-}
-
-/* ---------- გვერდის სათაური ---------- */
-.page-header {
-  margin-bottom: var(--space-xl);
-}
-
-.page-header h1 {
-  margin-bottom: var(--space-sm);
-}
-
-.page-header p {
-  font-size: var(--fs-lg);
-  color: var(--color-text-muted);
-  margin-bottom: 0;
-}
-
-/* ---------- Hero (მთავარი გვერდი) ---------- */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-md);
-  padding-block: var(--space-xl);
-  margin-bottom: var(--space-xl);
-}
-
-.hero p {
-  max-width: 40rem;
-  font-size: var(--fs-lg);
-  color: var(--color-text-muted);
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-}
-
-/* ---------- ბარათების ბადე (Grid) ---------- */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: var(--space-lg);
-}
-
-/* ---------- რედაქტორი: ფორმა + პრევიუ (Grid) ---------- */
-.editor-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
-  align-items: start;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-}
-
-/* ---------- ინსტრუმენტთა პანელი (ძებნა + ფილტრი) ---------- */
-.toolbar {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: var(--space-md);
-  margin-bottom: var(--space-lg);
-}
-
-.contact-form {
-  max-width: 36rem;
-}
-
-/* ---------- Responsive ---------- */
-
-/* დესკტოპი: პრევიუ ეკრანზე რჩება სქროლისას */
-@media (min-width: 901px) {
-  .preview-panel {
-    position: sticky;
-    top: var(--space-lg);
-    max-height: calc(100vh - var(--space-xl));
-    overflow-y: auto;
-  }
-}
-
-/* ტაბლეტი */
-@media (max-width: 900px) {
-  .editor-layout {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
   }
 
-  main {
-    padding-block: var(--space-lg);
-  }
-}
-
-/* მობილური */
-@media (max-width: 700px) {
-  .site-header .nav-toggle {
-    display: inline-block;
+  .nav-toggle {
+    display: block;
   }
 
   .site-nav {
     display: none;
-    width: 100%;
-    padding-bottom: var(--space-md);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--card-bg, #ffffff);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1000;
   }
 
   .site-nav.is-open {
@@ -179,23 +43,9 @@ main {
 
   .site-nav ul {
     flex-direction: column;
-  }
-
-  .toolbar,
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .site-footer .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .input-with-button {
-    flex-direction: column;
-  }
-
-  .modal__actions .btn {
-    flex: 1 1 100%;
+    gap: 0.75rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
 }
