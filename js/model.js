@@ -1,4 +1,12 @@
-export const templates = ["modern", "classic", "minimal"];
+import { validPhoto } from "./photo.js";
+export const templates = [
+  "modern",
+  "classic",
+  "minimal",
+  "professional",
+  "creative",
+  "elegant",
+];
 export function emptyResume() {
   return {
     id: "",
@@ -9,6 +17,7 @@ export function emptyResume() {
     city: "",
     label: "",
     summary: "",
+    photo: "",
     template: "modern",
     color: "#315a4b",
     order: ["experience", "education", "skills"],
@@ -50,6 +59,7 @@ export function normalize(value) {
     "summary",
   ])
     data[key] = typeof value[key] === "string" ? value[key] : "";
+  data.photo = validPhoto(value.photo) ? value.photo : "";
   data.template = templates.includes(value.template)
     ? value.template
     : "modern";

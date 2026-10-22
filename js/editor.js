@@ -1,3 +1,4 @@
+import { preparePhoto } from "./photo.js";
 import {
   emptyResume,
   normalize,
@@ -40,6 +41,54 @@ fields.forEach((key) => {
 });
 const preview = () =>
   renderResume(document.querySelector("#resume-preview"), data);
+const photoInput = document.querySelector("#photo-input");
+const photoStatus = document.querySelector("#photo-status");
+const photoThumbnail = document.querySelector("#photo-thumbnail");
+const removePhoto = document.querySelector("#remove-photo");
+let photoRequest = 0,
+  photoBusy = false;
+function showPhoto() {
+  photoThumbnail.hidden = !data.photo;
+  removePhoto.hidden = !data.photo && !photoBusy;
+  if (data.photo) photoThumbnail.src = data.photo;
+  else photoThumbnail.removeAttribute("src");
+}
+photoInput.addEventListener("change", async () => {
+  const file = photoInput.files[0];
+  if (!file) return;
+  const request = ++photoRequest;
+  dirty = true;
+  photoBusy = true;
+  photoStatus.textContent = "ფოტო მუშავდება…";
+  showPhoto();
+  try {
+    const photo = await preparePhoto(file);
+    if (request !== photoRequest) return;
+    data.photo = photo;
+    update();
+    photoStatus.textContent =
+      "ფოტო დაემატა. ცვლილების დასატოვებლად დააჭირე შენახვას.";
+  } catch (error) {
+    if (request === photoRequest) photoStatus.textContent = error.message;
+  } finally {
+    if (request === photoRequest) {
+      photoBusy = false;
+      photoInput.value = "";
+      showPhoto();
+    }
+  }
+});
+removePhoto.addEventListener("click", () => {
+  ++photoRequest;
+  photoBusy = false;
+  data.photo = "";
+  photoInput.value = "";
+  photoStatus.textContent =
+    "ფოტო წაიშალა. ცვლილების დასატოვებლად დააჭირე შენახვას.";
+  showPhoto();
+  update();
+  photoInput.focus();
+});
 function update() {
   dirty = true;
   preview();
@@ -130,6 +179,10 @@ function drawSections(focusId) {
   if (focusId) document.getElementById(focusId)?.focus();
 }
 function check() {
+  if (photoBusy) {
+    status.textContent = "დაელოდე ფოტოს დამუშავების დასრულებას.";
+    return false;
+  }
   const errors = validate(data);
   for (const key of ["name", "email", "phone"]) {
     const input = form.elements.namedItem(key);
@@ -157,8 +210,19 @@ form.addEventListener("submit", (event) => {
       "შენახვა ვერ მოხერხდა. მონაცემები ფორმაში დარჩა. სცადე ბეჭდვა / PDF.";
   }
 });
-document.querySelector("#print").addEventListener("click", () => {
-  if (check()) window.print();
+document.querySelector("#print").addEventListener("click", async () => {
+  if (!check()) return;
+  try {
+    await Promise.all(
+      [...document.querySelectorAll("#resume-preview img")].map((image) =>
+        image.decode(),
+      ),
+    );
+    window.print();
+  } catch {
+    status.textContent =
+      "ფოტოს ჩატვირთვა ვერ მოხერხდა. ხელახლა ატვირთე ფოტო და სცადე ბეჭდვა.";
+  }
 });
 window.addEventListener("beforeunload", (event) => {
   if (dirty) {
@@ -167,4 +231,5 @@ window.addEventListener("beforeunload", (event) => {
   }
 });
 drawSections();
+showPhoto();
 preview();

@@ -54,3 +54,13 @@
     border: 0;
   }
 }
+@media print {
+  .resume-photo {
+    width: 24mm;
+    height: 24mm;
+  }
+  .resume.has-photo .resume-heading {
+    padding-right: 29mm;
+    min-height: 27mm;
+  }
+}

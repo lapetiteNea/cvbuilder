@@ -13,7 +13,17 @@ export function renderResume(target, data) {
   target.replaceChildren();
   target.className = `resume ${data.template}`;
   target.style.setProperty("--cv-accent", data.color);
-  target.append(
+  const heading = element("div", undefined, "resume-heading");
+  if (data.photo) {
+    const photo = element("img", undefined, "resume-photo");
+    photo.src = data.photo;
+    photo.alt = "რეზიუმეს ფოტო";
+    photo.width = 88;
+    photo.height = 88;
+    target.append(photo);
+    target.classList.add("has-photo");
+  }
+  heading.append(
     element("h2", data.name || "შენი სახელი და გვარი"),
     element("p", data.title || "შენი პროფესია", "job-title"),
     element(
@@ -22,6 +32,7 @@ export function renderResume(target, data) {
       "contact-line",
     ),
   );
+  target.append(heading);
   if (data.summary)
     target.append(element("h3", "ჩემ შესახებ"), element("p", data.summary));
   for (const type of data.order) {

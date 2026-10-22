@@ -73,3 +73,40 @@ test("normalize rejects unsupported template color and duplicate order", () => {
   assert.deepEqual(data.order, emptyResume().order);
   assert.equal(data.education.length, 1);
 });
+test("old resumes load without a photo and all six templates can be saved", () => {
+  assert.equal(normalize({ name: "Old CV" }).photo, "");
+  const storage = memory();
+  for (const template of [
+    "modern",
+    "classic",
+    "minimal",
+    "professional",
+    "creative",
+    "elegant",
+  ]) {
+    assert.equal(save({ ...valid(), template }, storage).template, template);
+  }
+  assert.equal(readAll(storage).length, 6);
+});
+test("photos survive updates and can be removed without affecting another CV", () => {
+  const storage = memory(),
+    photo = "data:image/jpeg;base64,/9j/2Q==";
+  const a = save({ ...valid(), photo }, storage);
+  const b = save({ ...valid(), photo }, storage);
+  assert.equal(readAll(storage)[0].photo, photo);
+  save({ ...a, title: "Updated" }, storage);
+  assert.equal(readAll(storage)[0].photo, photo);
+  save({ ...a, photo: "" }, storage);
+  assert.equal(readAll(storage)[0].photo, "");
+  assert.equal(readAll(storage).find((x) => x.id === b.id).photo, photo);
+});
+test("invalid photo formats and oversized stored images are discarded", () => {
+  for (const photo of [
+    "https://example.com/photo.jpg",
+    "data:image/svg+xml;base64,AAAA",
+    "data:image/jpeg;base64,!!!!",
+    "data:image/jpeg;base64," + "A".repeat(300000),
+  ]) {
+    assert.equal(normalize({ ...valid(), photo }).photo, "");
+  }
+});
