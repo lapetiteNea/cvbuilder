@@ -108,6 +108,37 @@
                 /><small class="error" id="label-error"></small>
               </div>
             </div>
+            <div class="photo-upload">
+              <label for="photo-input">რეზიუმეს ფოტო (არასავალდებულო)</label>
+              <input
+                id="photo-input"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                aria-describedby="photo-help photo-status"
+              />
+              <small id="photo-help"
+                >JPG, PNG ან WebP · 8 MB-მდე. ფოტო ავტომატურად შემცირდება და
+                მხოლოდ შენს ბრაუზერში შეინახება.</small
+              >
+              <div class="photo-actions">
+                <img
+                  id="photo-thumbnail"
+                  alt="არჩეული ფოტო"
+                  width="64"
+                  height="64"
+                  hidden
+                />
+                <button
+                  type="button"
+                  id="remove-photo"
+                  class="secondary"
+                  hidden
+                >
+                  ფოტოს წაშლა
+                </button>
+              </div>
+              <p id="photo-status" role="status"></p>
+            </div>
             <label for="summary">ჩემ შესახებ</label
             ><textarea
               id="summary"
@@ -126,6 +157,9 @@
                   <option value="modern">თანამედროვე</option>
                   <option value="classic">კლასიკური</option>
                   <option value="minimal">მინიმალური</option>
+                  <option value="professional">პროფესიული</option>
+                  <option value="creative">კრეატიული</option>
+                  <option value="elegant">ელეგანტური</option>
                 </select>
               </div>
               <div>

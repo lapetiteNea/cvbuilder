@@ -73,3 +73,87 @@
   width: 100%;
   text-align: center;
 }
+.resume-heading {
+  min-height: 0;
+}
+.resume.has-photo .resume-heading {
+  min-height: 100px;
+  padding-right: 108px;
+}
+.resume-photo {
+  float: right;
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 14px;
+  border: 2px solid var(--cv-accent);
+}
+.resume > section,
+.resume > h3 {
+  clear: both;
+}
+.resume.classic .resume-heading {
+  text-align: center;
+}
+.resume.classic .resume-photo {
+  border-radius: 50%;
+}
+.resume.professional {
+  border-top: 12px solid var(--cv-accent);
+}
+.resume.professional h3 {
+  border: 0;
+  border-left: 3px solid var(--cv-accent);
+  padding: 5px 12px;
+  background: #f1f4f1;
+}
+.resume.professional .contact-line {
+  border-bottom: 1px solid #dce4da;
+  padding-bottom: 16px;
+}
+.resume.creative {
+  border-left: 10px solid var(--cv-accent);
+  background: linear-gradient(135deg, #f1f5ef 0%, white 45%);
+}
+.resume.creative h2 {
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+.resume.creative h3 {
+  border: 0;
+  border-bottom: 3px solid var(--cv-accent);
+  display: table;
+}
+.resume.creative .resume-photo {
+  border-radius: 50%;
+}
+.resume.elegant {
+  font-family: Georgia, serif;
+  border-top: 2px solid var(--cv-accent);
+  border-bottom: 2px solid var(--cv-accent);
+}
+.resume.elegant .resume-heading {
+  text-align: center;
+}
+.resume.elegant h3 {
+  text-align: center;
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--cv-accent);
+}
+.resume.elegant .resume-photo {
+  border-radius: 2px;
+}
+.miniature.creative h2 {
+  font-size: 1.3rem;
+}
+@media (max-width: 420px) {
+  .resume-photo {
+    width: 64px;
+    height: 64px;
+  }
+  .resume.has-photo .resume-heading {
+    padding-right: 80px;
+    min-height: 76px;
+  }
+}

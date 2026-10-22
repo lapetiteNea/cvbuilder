@@ -182,3 +182,91 @@ dialog::backdrop {
   background: var(--soft);
   border-radius: var(--radius);
 }
+.photo-upload {
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+  padding-top: 8px;
+}
+.photo-upload small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+}
+.photo-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 14px;
+}
+#photo-thumbnail {
+  object-fit: cover;
+  border-radius: 10px;
+}
+#photo-status {
+  font-size: 0.8rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  button,
+  .button,
+  .card,
+  input,
+  textarea,
+  select,
+  nav a {
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+  button:not(:disabled):hover,
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px #243d351c;
+  }
+  button:not(:disabled):active,
+  .button:active {
+    transform: translateY(0) scale(0.98);
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px #243d3512;
+  }
+  .hero,
+  .page-heading {
+    animation: enter 0.45s ease both;
+  }
+  .template-gallery .card {
+    animation: enter 0.4s ease both;
+  }
+  .template-gallery .card:nth-child(2n) {
+    animation-delay: 0.08s;
+  }
+  .template-gallery .card:nth-child(3n) {
+    animation-delay: 0.16s;
+  }
+  .entry {
+    animation: enter 0.2s ease both;
+  }
+  dialog[open] {
+    animation: enter 0.2s ease both;
+  }
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+@media print {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
