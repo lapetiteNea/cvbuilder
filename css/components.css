@@ -428,3 +428,91 @@ dialog::backdrop {
     transition: none !important;
   }
 }
+.workspace-bar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px 30px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-bottom: 24px;
+}
+.completion label {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 8px;
+}
+.completion small {
+  display: block;
+  color: var(--muted);
+}
+progress {
+  width: 100%;
+  height: 9px;
+  border: 0;
+  border-radius: 10px;
+  accent-color: var(--accent);
+}
+progress::-webkit-progress-bar {
+  background: var(--soft);
+  border-radius: 10px;
+}
+progress::-webkit-progress-value {
+  background: var(--accent);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+.workspace-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.import-label {
+  margin: 0;
+  cursor: pointer;
+}
+#import-cv {
+  max-width: 240px;
+  font-size: 0.75rem;
+}
+#draft-status {
+  grid-column: 1/-1;
+  font-size: 0.8rem;
+  margin: 0;
+}
+.draft-recovery {
+  border: 1px solid var(--accent);
+  background: var(--soft);
+  padding: 20px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+.draft-recovery button {
+  margin: 5px;
+}
+.editor-actions {
+  position: sticky;
+  bottom: 12px;
+  z-index: 2;
+  padding: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px #243d3515;
+}
+@media (max-width: 780px) {
+  .workspace-bar {
+    grid-template-columns: 1fr;
+  }
+  .workspace-tools {
+    align-items: stretch;
+  }
+}
+@media print {
+  .workspace-bar,
+  .draft-recovery {
+    display: none !important;
+  }
+}
