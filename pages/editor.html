@@ -39,6 +39,34 @@
           შეავსე ინფორმაცია და ნახე შედეგი რეალურ დროში. * სავალდებულო ველია.
         </p>
       </div>
+      <section class="workspace-bar" aria-label="რეზიუმეს მართვა">
+        <div class="completion">
+          <label for="cv-progress"
+            >შევსების პროგრესი <strong id="progress-value">0%</strong></label
+          ><progress id="cv-progress" value="0" max="100"></progress
+          ><small
+            >შეავსე შენთვის შესაბამისი სექციები — ყველა პუნქტი სავალდებულო არ
+            არის.</small
+          >
+        </div>
+        <div class="workspace-tools">
+          <button type="button" class="secondary" id="export-cv">
+            ფაილად შენახვა ↓</button
+          ><label class="button secondary import-label" for="import-cv"
+            >ფაილიდან გახსნა ↑</label
+          ><input type="file" id="import-cv" accept=".json,application/json" />
+        </div>
+        <p id="draft-status" role="status">
+          მონახაზი ავტომატურად ინახება ამ ბრაუზერში.
+        </p>
+      </section>
+      <div class="draft-recovery" id="draft-recovery" hidden>
+        <p>შენახული მონახაზი მოიძებნა. გსურს მუშაობის გაგრძელება?</p>
+        <button type="button" id="restore-draft">მონახაზის აღდგენა</button
+        ><button type="button" id="discard-draft" class="secondary">
+          მონახაზის წაშლა
+        </button>
+      </div>
       <div class="editor-layout">
         <form id="cv-form" novalidate>
           <fieldset>
@@ -168,7 +196,7 @@
               </div>
             </div>
           </fieldset>
-          <div class="actions">
+          <div class="actions editor-actions">
             <button type="submit">შენახვა</button
             ><button type="button" class="secondary" id="print">
               ბეჭდვა / PDF ↗

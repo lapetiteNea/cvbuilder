@@ -1,3 +1,11 @@
+import {
+  completion,
+  exportResume,
+  importResume,
+  writeDraft,
+  readDraft,
+  clearDraft,
+} from "./workspace.js";
 import { preparePhoto } from "./photo.js";
 import {
   emptyResume,
@@ -91,7 +99,12 @@ removePhoto.addEventListener("click", () => {
 });
 function update() {
   dirty = true;
+  draftSaved = false;
   preview();
+  updateProgress();
+  clearTimeout(draftTimer);
+  draftStatus.textContent = "მონახაზი ინახება…";
+  draftTimer = setTimeout(flushDraft, 500);
 }
 form.addEventListener("input", (event) => {
   if (fields.includes(event.target.name)) {
@@ -201,6 +214,13 @@ form.addEventListener("submit", (event) => {
   if (!check()) return;
   try {
     data = save(data);
+    clearTimeout(draftTimer);
+    try {
+      clearDraft(draftId);
+    } catch {}
+    draftId = data.id;
+    recovery.hidden = true;
+    draftStatus.textContent = "რეზიუმე შენახულია „ჩემი რეზიუმეების“ სიაში.";
     dirty = false;
     history.replaceState(null, "", `?id=${encodeURIComponent(data.id)}`);
     status.textContent = "✓ რეზიუმე შენახულია. იხილე „ჩემი რეზიუმეები“.";
@@ -225,11 +245,122 @@ document.querySelector("#print").addEventListener("click", async () => {
   }
 });
 window.addEventListener("beforeunload", (event) => {
-  if (dirty) {
+  if (dirty && (!draftSaved || photoBusy)) {
     event.preventDefault();
     event.returnValue = "";
   }
 });
-drawSections();
-showPhoto();
-preview();
+const draftStatus = document.querySelector("#draft-status");
+const recovery = document.querySelector("#draft-recovery");
+let draftId = params.get("id") || "",
+  draftTimer,
+  draftSaved = false,
+  recovered;
+function updateProgress() {
+  const value = completion(data);
+  document.querySelector("#cv-progress").value = value;
+  document.querySelector("#progress-value").textContent = `${value}%`;
+}
+function flushDraft() {
+  if (!dirty || photoBusy) return;
+  try {
+    writeDraft(draftId, data);
+    draftSaved = true;
+    draftStatus.textContent = "✓ მონახაზი ავტომატურად შენახულია ამ ბრაუზერში.";
+  } catch {
+    draftSaved = false;
+    draftStatus.textContent =
+      "მონახაზი ვერ შეინახა. გამოიყენე „შენახვა“ ან „ფაილად შენახვა“.";
+  }
+}
+function fillEditor() {
+  for (const key of fields) form.elements.namedItem(key).value = data[key];
+  for (const key of ["name", "email", "phone"]) {
+    form.elements.namedItem(key).removeAttribute("aria-invalid");
+    document.getElementById(`${key}-error`).textContent = "";
+  }
+  drawSections();
+  showPhoto();
+  preview();
+  updateProgress();
+}
+try {
+  recovered = readDraft(draftId);
+  recovery.hidden = !recovered;
+} catch {
+  draftStatus.textContent =
+    "ძველი მონახაზი ვერ გაიხსნა. შეგიძლია ახალი რეზიუმე შეავსო.";
+}
+document.querySelector("#restore-draft").addEventListener("click", () => {
+  data = { ...recovered, id: draftId };
+  recovery.hidden = true;
+  fillEditor();
+  update();
+  status.textContent =
+    "მონახაზი აღდგენილია. საბოლოო ვერსიისთვის დააჭირე შენახვას.";
+});
+document.querySelector("#discard-draft").addEventListener("click", () => {
+  try {
+    clearDraft(draftId);
+    recovery.hidden = true;
+    draftStatus.textContent = "მონახაზი წაიშალა.";
+  } catch {
+    draftStatus.textContent = "მონახაზის წაშლა ვერ მოხერხდა.";
+  }
+});
+document.querySelector("#export-cv").addEventListener("click", () => {
+  if (photoBusy) {
+    status.textContent = "დაელოდე ფოტოს დამუშავების დასრულებას.";
+    return;
+  }
+  const url = URL.createObjectURL(
+    new Blob([exportResume(data)], { type: "application/json" }),
+  );
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "my-resume.json";
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  status.textContent =
+    "JSON ფაილით შეძლებ რეზიუმეს სხვა ბრაუზერშიც გახსნას. PDF-ისთვის გამოიყენე ბეჭდვა.";
+});
+const importInput = document.querySelector("#import-cv");
+let importRequest = 0;
+importInput.addEventListener("change", async () => {
+  const file = importInput.files[0];
+  if (!file) return;
+  const request = ++importRequest;
+  try {
+    if (file.size > 1000000) throw new Error("ფაილის ზომა უნდა იყოს 1 MB-მდე.");
+    const imported = importResume(await file.text());
+    if (request !== importRequest) return;
+    if (
+      (dirty || data.name || data.summary) &&
+      !window.confirm("ფაილიდან გახსნა მიმდინარე ფორმას შეცვლის. გავაგრძელოთ?")
+    )
+      return;
+    ++photoRequest;
+    photoBusy = false;
+    photoInput.value = "";
+    clearTimeout(draftTimer);
+    data = imported;
+    draftId = "";
+    history.replaceState(null, "", location.pathname);
+    recovery.hidden = true;
+    fillEditor();
+    update();
+    status.textContent =
+      "ფაილი გახსნილია როგორც ახალი რეზიუმე. შენახული ვერსიები არ შეცვლილა.";
+  } catch (error) {
+    status.textContent = error.message;
+  } finally {
+    if (request === importRequest) importInput.value = "";
+  }
+});
+window.addEventListener("pagehide", flushDraft);
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") flushDraft();
+});
+fillEditor();
